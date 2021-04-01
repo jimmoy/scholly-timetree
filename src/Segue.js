@@ -6,17 +6,23 @@ import {
   View,
 } from 'react-native'
 
-// Finger widths, clockwise from blue:
-// 170
-// 150
-// 128
-// 150
-// 170
+const diagonalAnimation = (valueRef, leftOutput, topOutput) => ({
+  left: valueRef.current.interpolate({
+    inputRange: [0, 1],
+    outputRange: leftOutput,
+  }),
+  top: valueRef.current.interpolate({
+    inputRange: [0, 1],
+    outputRange: topOutput,
+  }),
+});
 
 export const Segue: () => Node = () => {
   const blueValue = useRef(new Animated.Value(0))
   const greenValue = useRef(new Animated.Value(0))
   const redValue = useRef(new Animated.Value(0))
+  const yellowValue = useRef(new Animated.Value(0))
+  const purpleValue = useRef(new Animated.Value(0))
 
   const blueAnimation = {
     height: blueValue.current.interpolate({
@@ -25,27 +31,17 @@ export const Segue: () => Node = () => {
     }),
   }
 
-  const greenAnimation = {
-    left: greenValue.current.interpolate({
-      inputRange: [0, 1],
-      outputRange: [550, 352],
-    }),
-    top: greenValue.current.interpolate({
-      inputRange: [0, 1],
-      outputRange: [-310, -250],
-    }),
-  }
+  const greenAnimation = diagonalAnimation(
+    greenValue, [550, 348], [-310, -256])
 
-  const redAnimation = {
-    left: redValue.current.interpolate({
-      inputRange: [0, 1],
-      outputRange: [550, 305],
-    }),
-    top: redValue.current.interpolate({
-      inputRange: [0, 1],
-      outputRange: [10, -435],
-    }),
-  }
+  const redAnimation = diagonalAnimation(
+    redValue, [550, 305], [10, -438])
+
+  const yellowAnimation = diagonalAnimation(
+    yellowValue, [-300, 0], [-600, -940])
+
+  const purpleAnimation = diagonalAnimation(
+    purpleValue, [-250, -48], [-1700, -1660])
 
   useEffect(() => {
     setTimeout(() => {
@@ -67,6 +63,18 @@ export const Segue: () => Node = () => {
           delay: 400,
           useNativeDriver: false,
         }),
+        Animated.timing(yellowValue.current, {
+          toValue: 1,
+          duration: 400,
+          delay: 600,
+          useNativeDriver: false,
+        }),
+        Animated.timing(purpleValue.current, {
+          toValue: 1,
+          duration: 400,
+          delay: 900,
+          useNativeDriver: false,
+        }),
       ]).start()
     }, 1200)
   }, [])
@@ -76,6 +84,8 @@ export const Segue: () => Node = () => {
       <Animated.View style={[styles.blue, blueAnimation]} />
       <Animated.View style={[styles.green, greenAnimation]} />
       <Animated.View style={[styles.red, redAnimation]} />
+      <Animated.View style={[styles.yellow, yellowAnimation]} />
+      <Animated.View style={[styles.purple, purpleAnimation]} />
     </View>
   )
 }
@@ -88,6 +98,12 @@ const radiusGreen = widthGreen / 2
 
 const widthRed = 80
 const radiusRed = widthRed / 2
+
+const widthYellow = 90
+const radiusYellow = widthYellow / 2
+
+const widthPurple = 100
+const radiusPurple = widthPurple / 2
 
 const styles = StyleSheet.create({
   backgroundStyle: {
@@ -120,12 +136,34 @@ const styles = StyleSheet.create({
     transform: [
       {
         rotateZ: `${2 * 72}deg`,
-      }
+      },
     ],
     backgroundColor: '#e43250b0',
     borderBottomLeftRadius: radiusRed,
     borderBottomRightRadius: radiusRed,
   },
+  yellow: {
+    width: widthYellow,
+    height: 500,
+    transform: [
+      {
+        rotateZ: `${3 * 72}deg`,
+      },
+    ],
+    backgroundColor: '#f5d800c0',
+    borderBottomLeftRadius: radiusYellow,
+    borderBottomRightRadius: radiusYellow,
+  },
+  purple: {
+    width: widthPurple,
+    height: 400,
+    transform: [
+      {
+        rotateZ: `${4 * 72}deg`,
+      },
+    ],
+    backgroundColor: '#7732e0b0',
+    borderBottomRightRadius: radiusPurple,
+    borderBottomLeftRadius: radiusPurple,
+  },
 })
-
-
