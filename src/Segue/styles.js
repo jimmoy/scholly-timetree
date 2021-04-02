@@ -1,3 +1,4 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import {StyleSheet} from 'react-native'
 
 // Widths taken from the mock with PixelStick

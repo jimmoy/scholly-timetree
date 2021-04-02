@@ -1,3 +1,4 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import React from 'react'
 import {Image, Text, View} from 'react-native'
 
@@ -29,7 +30,6 @@ export const Intro = ({navigation}) => {
       <SpaceV n={2} />
 
       <FinePrint />
-      <SpaceV n={12} />
     </View>
   )
 }

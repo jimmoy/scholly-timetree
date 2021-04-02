@@ -1,14 +1,17 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import React from 'react'
 import {Text, TouchableOpacity, View} from 'react-native'
 
 import {primaryColor} from 'src/colors'
+import {styles} from './styles'
 
 // Label overrides children
 
 export const Button = ({
   label,
   children,
-  style,
+  buttonStyle,
+  textStyle,
   invert = false,
   onPress,
 }) => {
@@ -22,12 +25,14 @@ export const Button = ({
   }
   return (
     <TouchableOpacity
-      style={[styles.container, colors.container, style]}
+      style={[styles.container, colors.container, buttonStyle]}
       onPress={onPress}
     >
       <View>
         {label ? (
-          <Text style={[styles.text, colors.text]}>{label}</Text>
+          <Text style={[styles.text, colors.text, textStyle]}>
+            {label}
+          </Text>
         ) : (
           children
         )}
@@ -35,19 +40,3 @@ export const Button = ({
     </TouchableOpacity>
   )
 }
-
-const styles = {
-  container: {
-    alignItems: 'center',
-    borderColor: primaryColor,
-    borderRadius: 8,
-    borderWidth: 1,
-    height: 48,
-    justifyContent: 'center',
-    width: '75%',
-  },
-  text: {
-    fontWeight: '800',
-  },
-}
-

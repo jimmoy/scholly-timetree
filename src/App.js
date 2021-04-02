@@ -1,10 +1,10 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import React, {
   Fragment,
   useCallback,
   useEffect,
   useState,
 } from 'react'
-import type {Node} from 'react'
 import {LayoutAnimation, StatusBar} from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 
@@ -18,7 +18,7 @@ export const App = () => {
     setTimeout(() => {
       // Splash was shown in native code
       SplashScreen.hide()
-    }, 1000)
+    }, 500)
   }, [])
 
   const finishSegue = useCallback(() => {

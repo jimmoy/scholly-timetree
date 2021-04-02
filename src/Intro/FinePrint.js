@@ -1,3 +1,4 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import React, {useCallback} from 'react'
 import {Text, View} from 'react-native'
 

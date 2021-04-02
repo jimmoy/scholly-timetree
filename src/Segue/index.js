@@ -1,3 +1,4 @@
+// By Jim Moy, for Scholly interview, Apr 2021
 import React from 'react'
 import {Animated, View} from 'react-native'
 

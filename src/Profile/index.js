@@ -1,5 +1,5 @@
 // By Jim Moy, for Scholly interview, Apr 2021
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Image, Text, TextInput, View} from 'react-native'
 import {keys, isEmpty} from 'ramda'
 
@@ -13,18 +13,14 @@ const errMap = {
   password: 'The password is incorrect',
 }
 
-export const Login = ({navigation}) => {
-  const loginSuccess = useRef(() => {
-    navigation.replace('Home')
-  })
-
+export const Profile = ({navigation}) => {
   const {
     handleChange,
     handleBlur,
     handleSubmit,
     values,
     errors,
-  } = useFormHook(loginSuccess.current)
+  } = useFormHook()
 
   const [errMsg, setErrMsg] = useState('')
 
