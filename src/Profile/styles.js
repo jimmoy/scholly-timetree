@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
-  container: {
+  scroll: {
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#fefefe',

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {keys, isEmpty} from 'ramda'
 
 import {Button} from 'src/Button'
@@ -44,7 +45,7 @@ export const Profile = ({navigation}) => {
   }, [errors])
 
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView contentContainerStyle={styles.scroll}>
       <TouchableOpacity
         style={styles.container}
         onPress={() => alert('camera')}
@@ -91,6 +92,6 @@ export const Profile = ({navigation}) => {
         textStyle={{fontSize: 16}}
       />
       <SpaceV n={12} />
-    </View>
+    </KeyboardAwareScrollView>
   )
 }
