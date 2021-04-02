@@ -4,7 +4,7 @@ import {Animated, View} from 'react-native'
 import {styles} from './styles'
 import {useSegueAnimation} from './hooks'
 
-export const Segue: () => Node = ({finished}) => {
+export const Segue = ({finished}) => {
   const {
     blueAnimation,
     greenAnimation,

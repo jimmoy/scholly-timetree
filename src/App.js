@@ -1,12 +1,17 @@
-import React, {Fragment, useEffect, useState} from 'react'
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import type {Node} from 'react'
-import {StatusBar} from 'react-native'
+import {LayoutAnimation, StatusBar} from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 
 import {Segue} from './Segue'
 import {AppNavigation} from './AppNavigation'
 
-export const App: () => Node = () => {
+export const App = () => {
   const [segueFinished, setSegueFinished] = useState(false)
 
   useEffect(() => {
@@ -16,13 +21,20 @@ export const App: () => Node = () => {
     }, 1000)
   }, [])
 
+  const finishSegue = useCallback(() => {
+    setTimeout(() => {
+      setSegueFinished(true)
+      LayoutAnimation.easeInEaseOut()
+    }, 500)
+  }, [])
+
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
       {segueFinished ? (
         <AppNavigation />
       ) : (
-        <Segue finished={() => setSegueFinished(true)} />
+        <Segue finished={finishSegue} />
       )}
     </Fragment>
   )
