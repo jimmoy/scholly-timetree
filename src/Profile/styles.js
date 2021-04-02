@@ -7,6 +7,16 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fefefe',
     justifyContent: 'center',
   },
+  addPhoto: {
+    color: 'white',
+    position: 'relative',
+    fontSize: 14,
+    fontWeight: '500',
+    top: -50,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 5,
+  },
   errorContainer: {
     width: '50%',
     height: 50,

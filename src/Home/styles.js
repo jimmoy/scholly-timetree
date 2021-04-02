@@ -13,4 +13,8 @@ export const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
   },
+  text: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
 })

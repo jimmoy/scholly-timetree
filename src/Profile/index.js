@@ -1,6 +1,12 @@
 // By Jim Moy, for Scholly interview, Apr 2021
-import React, {useEffect, useState} from 'react'
-import {Image, Text, TextInput, View} from 'react-native'
+import React, {useEffect, useRef, useState} from 'react'
+import {
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import {keys, isEmpty} from 'ramda'
 
 import {Button} from 'src/Button'
@@ -9,18 +15,22 @@ import {useFormHook} from './hooks'
 import {styles} from './styles'
 
 const errMap = {
-  email: 'The email address is invalid',
-  password: 'The password is incorrect',
+  name: 'The name is invalid',
+  birthday: 'The birth date is incorrect',
 }
 
 export const Profile = ({navigation}) => {
+  const confirm = useRef(() => {
+    navigation.pop()
+  })
+
   const {
     handleChange,
     handleBlur,
     handleSubmit,
     values,
     errors,
-  } = useFormHook()
+  } = useFormHook(confirm.current)
 
   const [errMsg, setErrMsg] = useState('')
 
@@ -35,10 +45,16 @@ export const Profile = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('src/assets/splash-logo.png')}
-      />
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => alert('camera')}
+      >
+        <Image
+          style={styles.image}
+          source={require('src/assets/user-circle.png')}
+        />
+        <Text style={styles.addPhoto}>Add photo</Text>
+      </TouchableOpacity>
       <SpaceV n={5} />
 
       <View style={styles.errorContainer}>
@@ -50,18 +66,18 @@ export const Profile = ({navigation}) => {
       <View style={styles.fields}>
         <TextInput
           style={styles.input}
-          onChangeText={handleChange('email')}
-          onBlur={handleBlur('email')}
-          placeholder="Email Address"
+          onChangeText={handleChange('name')}
+          onBlur={handleBlur('name')}
+          placeholder="Name"
           value={values.email}
         />
         <SpaceV n={1} />
 
         <TextInput
           style={styles.input}
-          onChangeText={handleChange('password')}
-          onBlur={handleBlur('password')}
-          placeholder="The password is &ldquo;Password&rdquo;"
+          onChangeText={handleChange('birthday')}
+          onBlur={handleBlur('birthday')}
+          placeholder="Birthday"
           value={values.password}
         />
         <SpaceV n={1} />
@@ -69,9 +85,9 @@ export const Profile = ({navigation}) => {
       <SpaceV n={4} />
 
       <Button
-        label="Submit"
+        label="Confirm"
         onPress={handleSubmit}
-        title="Submit"
+        title="Confirm"
         textStyle={{fontSize: 16}}
       />
       <SpaceV n={12} />

@@ -58,6 +58,7 @@ export const Login = ({navigation}) => {
           onBlur={handleBlur('email')}
           placeholder="Email Address"
           value={values.email}
+          autoCapitalize="none"
         />
         <SpaceV n={1} />
 
@@ -67,6 +68,8 @@ export const Login = ({navigation}) => {
           onBlur={handleBlur('password')}
           placeholder="The password is &ldquo;Password&rdquo;"
           value={values.password}
+          autoCapitalize="none"
+          secureTextEntry={true}
         />
         <SpaceV n={1} />
       </View>

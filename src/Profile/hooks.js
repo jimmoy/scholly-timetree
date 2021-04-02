@@ -5,19 +5,21 @@ import {isEmpty} from 'ramda'
 
 import {validate} from './validate'
 
-export const useFormHook = () => {
+export const useFormHook = onLogin => {
   const [errors, setErrors] = useState({})
 
   const {handleChange, handleBlur, handleSubmit, values} = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      name: '',
+      birthday: '',
     },
     onSubmit: data => {
       setErrors({})
       const result = validate(data)
       if (!isEmpty(result)) {
         setErrors(result)
+      } else {
+        onLogin()
       }
     },
   })
