@@ -8,4 +8,5 @@ $ npx react-native run-android
 Demo in simulators:
 
 [iOS screen capture](https://youtu.be/708Jk6vcjEg)
+
 [Android screen capture](https://youtu.be/dMmqPmx6p_g)
