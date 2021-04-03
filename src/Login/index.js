@@ -39,7 +39,7 @@ export const Login = ({navigation}) => {
   }, [errors])
 
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView contentContainerStyle={styles.scroll}>
       <View style={styles.container}>
         <Image
           style={styles.image}

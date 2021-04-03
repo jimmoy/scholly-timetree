@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fefefe',
     justifyContent: 'center',
+    width: '100%',
   },
   addPhoto: {
     color: 'white',
