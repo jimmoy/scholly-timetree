@@ -7,6 +7,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fefefe',
     justifyContent: 'center',
   },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#fefefe',
+    justifyContent: 'center',
+  },
   addPhoto: {
     color: 'white',
     position: 'relative',

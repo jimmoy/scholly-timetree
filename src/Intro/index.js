@@ -1,6 +1,6 @@
 // By Jim Moy, for Scholly interview, Apr 2021
 import React from 'react'
-import {Image, Text, View} from 'react-native'
+import {Image, View} from 'react-native'
 
 import {Button} from 'src/Button'
 import {SpaceV} from 'src/Space'
