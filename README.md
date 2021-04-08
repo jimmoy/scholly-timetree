@@ -10,3 +10,6 @@ Demo in simulators:
 [iOS screen capture](https://youtu.be/708Jk6vcjEg)
 
 [Android screen capture](https://youtu.be/dMmqPmx6p_g)
+
+Exercise: implement the splash, intro, login, and profile screens for this mock:
+https://mobbin.design/apps/timetree
